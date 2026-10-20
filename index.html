@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>エアコンクリーニング ご予約フォーム｜家ラボつばめクリーン</title>
+<title>ハウスクリーニング ご予約フォーム｜家ラボつばめクリーン</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
-<meta name="description" content="家ラボつばめクリーンのエアコンクリーニング予約フォーム。台数とオプションを選ぶと概算が出ます。">
+<meta name="description" content="家ラボつばめクリーンのハウスクリーニング・エアコンクリーニング予約フォーム。お掃除する場所と数を選ぶと概算が出ます。">
 <style>
   :root{--bg:#f2f8fd;--card:#fff;--ink:#1d2b3a;--muted:#5b6c7e;--line:#d9e7f4;--brand:#0b5fb8;--brand-dk:#084a91;--sky:#5cb3f5;--soft:#e8f3fd;--leaf:#4a9a3a;--ok:#1f8a70;--warn:#b4532a}
   *{box-sizing:border-box}
@@ -21,7 +21,6 @@
   @media(max-width:520px){.hero h1{font-size:23px}}
   .hero .wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:56px;display:block}
   .wrap{max-width:720px;margin:-28px auto 0;padding:0 16px 40px;position:relative}
-  .campbar{display:none;background:var(--brand);color:#fff;border-radius:999px;padding:10px 18px;font-weight:800;text-align:center;margin-bottom:16px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 22px;margin-bottom:18px;box-shadow:0 4px 18px rgba(11,95,184,.06)}
   .card h2{display:flex;align-items:center;gap:10px;font-size:18px;margin:0 0 14px;padding-bottom:12px;border-bottom:2px dashed var(--line);font-weight:800}
   .card h2 .no{flex:none;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:15px}
@@ -29,7 +28,15 @@
   .row-item .t b{display:block;font-size:15px}
   .row-item .t span{font-size:13px;color:var(--muted)}
   .row-item .t span s{color:#9fb0c2}
-  .opt-title{font-weight:800;margin:18px 0 2px;color:var(--brand)}
+  .opt-title{font-weight:800;margin:14px 0 2px;color:var(--brand);font-size:14px}
+  .cat{margin-top:8px;padding-top:4px}
+  .cat + .cat{margin-top:18px;padding-top:14px;border-top:2px dashed var(--line)}
+  .cat-h{display:flex;align-items:center;gap:12px;margin:6px 0 4px}
+  .cat-h .ico{flex:none;width:46px;height:46px;border-radius:14px;background:var(--soft);color:var(--brand);display:grid;place-items:center}
+  .cat-h b{display:block;font-size:17px;line-height:1.3}
+  .cat-h div span{font-size:12px;color:var(--muted)}
+  .row-item .t span.quote{color:var(--brand)}
+  #e_total{font-variant-numeric:tabular-nums}
   .ctr{display:flex;align-items:center;gap:8px}
   .ctr button{width:40px;height:40px;border-radius:50%;border:2px solid var(--sky);background:#fff;font-size:18px;font-weight:800;color:var(--brand);cursor:pointer;font-family:inherit}
   .ctr button:hover:not(:disabled){background:var(--soft)}
@@ -230,31 +237,34 @@ P51G2kasp5tGP0dT/Wiit446o90jmll9NbNiDTNVP/LlJ+Y/xp66Lqz/APLtt/3pFH9aKKqWNmui/r5k
 BEPqWNXYPCFupBubmWU+i/KP8aKKxljKz62OiOBox3V/U17TTbOxH+jW8aH+9jJ/PrVqiiuZycnds6oxUVaKsFFFFIYUUUUAFFFF
 ABRRRQB//9k=" alt="家ラボつばめクリーン" width="120" height="120">
   <div class="shop">家ラボつばめクリーン</div>
-  <h1>エアコンクリーニング <span style="display:inline-block">ご予約フォーム</span></h1>
-  <p class="lead">台数とオプションを選ぶと概算が出ます。送信後すぐに確認メールが届き、作業日は担当者よりご連絡のうえ確定します。</p>
+  <h1>ハウスクリーニング <span style="display:inline-block">ご予約フォーム</span></h1>
+  <p class="lead">お掃除する場所と数を選ぶと概算が出ます。送信後すぐに確認メールが届き、作業日は担当者よりご連絡のうえ確定します。</p>
   <svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C240 2 480 54 720 28S1200 4 1440 26V56H0Z" fill="#f2f8fd"/><path d="M0 40C260 16 520 54 760 34S1220 18 1440 36" fill="none" stroke="#9fd0f7" stroke-width="3"/></svg>
 </header>
 <div class="wrap">
-  <div class="campbar" id="campbar">🎉 9月30日までの期間限定価格で承っています</div>
-
   <div class="card">
-    <h2><span class="no">1</span>台数とオプションを選ぶ</h2>
-    <div class="row-item"><div class="t"><b>エアコン台数（壁掛け）</b><span id="p_units"></span></div>
-      <div class="ctr"><button type="button" data-k="units" data-d="-1">−</button><output id="o_units">1</output><button type="button" data-k="units" data-d="1">＋</button></div></div>
-    <div class="row-item"><div class="t"><b>うち、お掃除機能付き</b><span id="p_auto"></span></div>
-      <div class="ctr"><button type="button" data-k="auto" data-d="-1">−</button><output id="o_auto">0</output><button type="button" data-k="auto" data-d="1">＋</button></div></div>
-    <p class="opt-title">オプション（台数分お選びください）</p>
-    <div class="row-item"><div class="t"><b>3点セット</b><span id="p_set3"></span></div>
-      <div class="ctr"><button type="button" data-k="set3" data-d="-1">−</button><output id="o_set3">0</output><button type="button" data-k="set3" data-d="1">＋</button></div></div>
-    <div class="row-item"><div class="t"><b>防カビ・抗菌コート</b><span>3,000円/台</span></div>
-      <div class="ctr"><button type="button" data-k="coat" data-d="-1">−</button><output id="o_coat">0</output><button type="button" data-k="coat" data-d="1">＋</button></div></div>
-    <div class="row-item"><div class="t"><b>室外機クリーニング</b><span>4,000円/台</span></div>
-      <div class="ctr"><button type="button" data-k="outdoor" data-d="-1">−</button><output id="o_outdoor">0</output><button type="button" data-k="outdoor" data-d="1">＋</button></div></div>
-    <div class="row-item" style="border-bottom:0"><div class="t"><b>ドレンホース洗浄</b><span>2,500円/台</span></div>
-      <div class="ctr"><button type="button" data-k="drain" data-d="-1">−</button><output id="o_drain">0</output><button type="button" data-k="drain" data-d="1">＋</button></div></div>
+    <h2><span class="no">1</span>お掃除する場所と数を選ぶ</h2>
 
-    <div class="est"><div class="l">💰 概算金額</div><div class="v">¥<span id="e_total">6,000</span><small> 円（税込・駐車場代別）</small></div>
-      <div class="d" id="e_saving">通常価格なら ¥<span id="e_normal"></span> ▶ <b>¥<span id="e_diff"></span> お得</b></div></div>
+    <section class="cat" aria-labelledby="cat-ac">
+      <div class="cat-h">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="8.5" rx="2.2"/><path d="M6 9.6h12"/><path d="M8 15.5c0 1.6-1 2.1-1 3.6M12 15.5c0 1.6-1 2.1-1 3.6M16 15.5c0 1.6-1 2.1-1 3.6"/></svg></span>
+        <div><b id="cat-ac">エアコン</b><span>タイプごとに台数をお選びください</span></div>
+      </div>
+      <div id="rows_ac"></div>
+      <p class="opt-title">エアコンのオプション（エアコンの台数までお選びいただけます）</p>
+      <div id="rows_acopt"></div>
+    </section>
+
+    <section class="cat" aria-labelledby="cat-water">
+      <div class="cat-h">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8c3.6 4.3 6.2 7.6 6.2 10.8a6.2 6.2 0 0 1-12.4 0c0-3.2 2.6-6.5 6.2-10.8z"/><path d="M9.3 14.2a2.8 2.8 0 0 0 2.7 2.8"/></svg></span>
+        <div><b id="cat-water">水回り</b><span>お掃除する場所の数をお選びください</span></div>
+      </div>
+      <div id="rows_water"></div>
+    </section>
+
+    <div class="est" aria-live="polite"><div class="l">💰 概算金額</div><div class="v">¥<span id="e_total">0</span><small> 円（税込・駐車場代別）</small></div>
+      <div class="d" id="e_quote">「料金はお見積り」の項目は含まれていません。担当者よりご案内します。</div></div>
     <p class="tip">🌱 こちらは概算です。汚れによる追加料金は基本的に発生しません（特殊な事情がある場合は作業前に必ずご説明します）。</p>
   </div>
 
@@ -310,11 +320,10 @@ ABRRRQB//9k=" alt="家ラボつばめクリーン" width="120" height="120">
     <label>駐車場 <small>駐車場代は別途実費</small></label>
     <select name="parking"><option>敷地内に駐車可</option><option>近隣コインパーキング利用</option><option>相談したい</option></select>
 
-    <label>エアコン以外のお掃除もご相談いただけます <small>任意・料金は担当者からご案内します</small></label>
+    <label>上記以外にもご相談いただけます <small>任意・料金は担当者からご案内します</small></label>
     <div class="chks">
-      <label><input type="checkbox" name="consult" value="お風呂・浴室クリーニング">お風呂・浴室</label>
-      <label><input type="checkbox" name="consult" value="キッチン・水回りクリーニング">キッチン・水回り</label>
-      <label><input type="checkbox" name="consult" value="洗濯機クリーニング">洗濯機</label>
+      <label><input type="checkbox" name="consult" value="ガラス清掃">ガラス清掃</label>
+      <label><input type="checkbox" name="consult" value="床清掃">床清掃</label>
       <label><input type="checkbox" name="consult" value="その他のお掃除">その他（備考にご記入ください）</label>
     </div>
 
@@ -337,56 +346,43 @@ ABRRRQB//9k=" alt="家ラボつばめクリーン" width="120" height="120">
 </footer>
 <script>
 const CONFIG = {
-  GAS_URL: "https://script.google.com/macros/s/AKfycbxpdvAotNcVayOmKhk0apEmhAANlip3v5cpNYpQ2C5JONWbZIDbdhSv_JcpnhuGAANi/exec",
-  CAMPAIGN_END: "2026-09-30T23:59:59+09:00"
+  GAS_URL: "https://script.google.com/macros/s/AKfycbxpdvAotNcVayOmKhk0apEmhAANlip3v5cpNYpQ2C5JONWbZIDbdhSv_JcpnhuGAANi/exec"
 };
-// 端末の時計ずれ対策：サーバー時刻との差を補正（取れなければ端末時刻）
-let clockOffset = 0;
-const nowMs = () => Date.now() + clockOffset;
-const isCampaign = () => nowMs() <= new Date(CONFIG.CAMPAIGN_END).getTime();
-let CAMPAIGN = isCampaign();
-// 通常価格
-const NORMAL = { unit:8900, auto:6000, set3:9500, coat:3000, outdoor:4000, drain:2500 };
-// キャンペーン価格（〜9/30）
-const CAMP = { first:6000, add:5000, auto:5000, set3:7000, coat:3000, outdoor:4000, drain:2500 };
-const NAMES = {
-  units:"エアコンクリーニング", auto:"お掃除機能付き加算",
-  set3:"3点セット（防カビ抗菌コート・室外機・ドレンホース）",
-  coat:"防カビ・抗菌コート", outdoor:"室外機クリーニング", drain:"ドレンホース洗浄"
-};
-const st = { units:1, auto:0, set3:0, coat:0, outdoor:0, drain:0 };
+// 料金表。price が null の項目は「料金はお見積り」と表示し、概算金額には含めない
+// normal は「通常価格合計」用（3点セットは別々に頼んだ場合の金額）
+const ITEMS = [
+  { k:"normal",    cat:"ac",    name:"壁掛け（通常）",           price:8900,  max:20, def:1 },
+  { k:"auto",      cat:"ac",    name:"壁掛け（お掃除機能付き）", price:14900, max:20 },
+  { k:"ceiling",   cat:"ac",    name:"天井埋込型",               price:22000, max:20 },
+  { k:"set3",      cat:"acopt", name:"3点セット", desc:"防カビ抗菌コート＋室外機＋ドレンホース", price:7000, normal:9500 },
+  { k:"coat",      cat:"acopt", name:"防カビ・抗菌コート",       price:3000 },
+  { k:"outdoor",   cat:"acopt", name:"室外機クリーニング",       price:4000 },
+  { k:"drain",     cat:"acopt", name:"ドレンホース洗浄",         price:2500 },
+  { k:"bath",      cat:"water", name:"浴室",                     price:14300, max:5 },
+  { k:"hood",      cat:"water", name:"レンジフード",             price:14300, max:5 },
+  { k:"kitchen",   cat:"water", name:"キッチン",                 price:12100, max:5 },
+  { k:"toilet",    cat:"water", name:"トイレ",                   price:8800,  max:5 },
+  { k:"washbasin", cat:"water", name:"洗面台",                   price:6600,  max:5 }
+];
+const UNIT = { ac:"台", acopt:"台", water:"か所" };
+const st = Object.fromEntries(ITEMS.map(i => [i.k, i.def || 0]));
 const yen = n => n.toLocaleString("ja-JP");
 const $ = s => document.querySelector(s);
+const acTotal = () => ITEMS.filter(i => i.cat === "ac").reduce((a, i) => a + st[i.k], 0);
 
-// 価格ラベルとバナー
-function applyPriceLabels(){
-if (CAMPAIGN) {
-  $("#campbar").style.display = "block";
-  $("#p_units").innerHTML = '<s>8,900円</s> → 1台目6,000円／2台目〜5,000円';
-  $("#p_auto").innerHTML = '<s>＋6,000円</s> → ＋5,000円/台';
-  $("#p_set3").innerHTML = '防カビ抗菌コート＋室外機＋ドレンホース｜<s>9,500円</s> → 7,000円/台';
-} else {
-  $("#p_units").textContent = "8,900円/台";
-  $("#p_auto").textContent = "＋6,000円/台";
-  $("#campbar").style.display = "none";
-  $("#p_set3").textContent = "防カビ抗菌コート＋室外機＋ドレンホース｜7,000円/台（別々なら9,500円）";
-}
-}
-applyPriceLabels();
-
-// ページを開いたまま10/1 0:00を過ぎても、その場で通常価格に切り替える
-function checkCampaignEnd(){
-  if (CAMPAIGN && !isCampaign()) {
-    CAMPAIGN = false; applyPriceLabels(); render();
-    return true; // 切り替わった
-  }
-  return false;
-}
-setInterval(checkCampaignEnd, 15000);
-fetch(location.href.split("#")[0], { method:"HEAD", cache:"no-store" }).then(r => {
-  const d = r.headers.get("Date");
-  if (d) { clockOffset = new Date(d).getTime() - Date.now(); checkCampaignEnd(); }
-}).catch(()=>{});
+// 項目の行を料金表から作る
+ITEMS.forEach(it => {
+  const u = UNIT[it.cat];
+  let label = it.price == null ? '<span class="quote">料金はお見積り</span>' : '<span>' + yen(it.price) + "円/" + u + "</span>";
+  if (it.desc) label = "<span>" + it.desc + "｜" + yen(it.price) + "円/" + u + (it.normal ? "（別々なら" + yen(it.normal) + "円）" : "") + "</span>";
+  const row = document.createElement("div");
+  row.className = "row-item";
+  row.innerHTML = '<div class="t"><b>' + it.name + "</b>" + label + "</div>"
+    + '<div class="ctr"><button type="button" data-k="' + it.k + '" data-d="-1" aria-label="' + it.name + 'を減らす">−</button>'
+    + '<output id="o_' + it.k + '">0</output>'
+    + '<button type="button" data-k="' + it.k + '" data-d="1" aria-label="' + it.name + 'を増やす">＋</button></div>';
+  $("#rows_" + it.cat).appendChild(row);
+});
 
 // 作業希望日は明後日以降（日本時間）
 (() => {
@@ -412,42 +408,55 @@ fetch(location.href.split("#")[0], { method:"HEAD", cache:"no-store" }).then(r =
 })();
 
 function calc(){
-  const lines = [];
-  const u = st.units;
-  if (u) {
-    const amount = CAMPAIGN ? CAMP.first + (u-1)*CAMP.add : u*NORMAL.unit;
-    const items = CAMPAIGN
-      ? [{name:"エアコンクリーニング（期間限定 1台目）",qty:1,unit:CAMP.first}].concat(u>1?[{name:"エアコンクリーニング（2台目以降）",qty:u-1,unit:CAMP.add}]:[])
-      : [{name:NAMES.units, qty:u, unit:NORMAL.unit}];
-    lines.push({ name:NAMES.units+" "+u+"台", amount, normal:u*NORMAL.unit, items });
-  }
-  ["auto","set3","coat","outdoor","drain"].forEach(k => {
-    if (st[k]) {
-      const unit = (CAMPAIGN || k==="set3") ? CAMP[k] : NORMAL[k]; // 3点セットは10月以降も7,000円
-      lines.push({ name:NAMES[k]+" "+st[k]+"台", amount:st[k]*unit, normal:st[k]*NORMAL[k], items:[{name:NAMES[k], qty:st[k], unit}] });
-    }
+  const lines = ITEMS.filter(it => st[it.k] > 0).map(it => {
+    const q = st[it.k], u = UNIT[it.cat];
+    return {
+      name: it.name + " " + q + u, quote: it.price == null,
+      amount: (it.price || 0) * q, normal: (it.normal || it.price || 0) * q,
+      items: [{ name: it.name, qty: q, unit: it.price, unitLabel: u }]
+    };
   });
-  return { lines, total: lines.reduce((a,l)=>a+l.amount,0), normal: lines.reduce((a,l)=>a+l.normal,0) };
+  return {
+    lines, quote: lines.some(l => l.quote),
+    total: lines.reduce((a, l) => a + l.amount, 0), normal: lines.reduce((a, l) => a + l.normal, 0)
+  };
 }
+
+// 合計金額を、前の金額から新しい金額までカウントアップ／ダウンして表示する
+let shownTotal = 0, totalAnim = 0, totalFallback = 0;
+function showTotal(target){
+  const el = $("#e_total");
+  cancelAnimationFrame(totalAnim); clearTimeout(totalFallback);
+  // アニメーションが止まる環境（非表示のタブなど）でも、最後は必ず正しい金額にする
+  totalFallback = setTimeout(() => { cancelAnimationFrame(totalAnim); shownTotal = target; el.textContent = yen(target); }, 700);
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { shownTotal = target; el.textContent = yen(target); return; }
+  const from = shownTotal, start = performance.now(), dur = 450;
+  const step = now => {
+    const p = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - p, 3);
+    shownTotal = Math.round(from + (target - from) * e);
+    el.textContent = yen(shownTotal);
+    if (p < 1) totalAnim = requestAnimationFrame(step);
+  };
+  totalAnim = requestAnimationFrame(step);
+}
+
 function render(){
-  Object.keys(st).forEach(k => { $("#o_"+k).textContent = st[k]; });
+  ITEMS.forEach(it => { $("#o_" + it.k).textContent = st[it.k]; });
   const c = calc();
-  $("#e_total").textContent = yen(c.total);
-  if (CAMPAIGN && c.normal > c.total) {
-    $("#e_saving").style.display = "block";
-    $("#e_normal").textContent = yen(c.normal);
-    $("#e_diff").textContent = yen(c.normal - c.total);
-  } else { $("#e_saving").style.display = "none"; }
+  showTotal(c.total);
+  $("#e_quote").style.display = c.quote ? "block" : "none";
+  const ac = acTotal();
   document.querySelectorAll(".ctr button").forEach(b => {
-    const k=b.dataset.k, d=+b.dataset.d;
-    if (d<0) b.disabled = st[k] <= 0;
-    else b.disabled = k==="units" ? st.units>=20 : st[k] >= st.units;
+    const it = ITEMS.find(i => i.k === b.dataset.k), d = +b.dataset.d;
+    if (d < 0) b.disabled = st[it.k] <= 0;
+    else b.disabled = it.cat === "acopt" ? st[it.k] >= ac : st[it.k] >= it.max;
   });
 }
 document.querySelectorAll(".ctr button").forEach(b => b.addEventListener("click", () => {
-  const k=b.dataset.k, d=+b.dataset.d;
-  st[k] = Math.max(0, st[k]+d);
-  if (k==="units") Object.keys(st).forEach(x => { if (x!=="units" && st[x] > st.units) st[x] = st.units; });
+  const it = ITEMS.find(i => i.k === b.dataset.k);
+  st[it.k] = Math.max(0, st[it.k] + (+b.dataset.d));
+  // エアコンを減らしたら、オプションをエアコンの台数までに揃える
+  if (it.cat === "ac") ITEMS.filter(i => i.cat === "acopt").forEach(o => { st[o.k] = Math.min(st[o.k], acTotal()); });
   render();
 }));
 render();
@@ -455,14 +464,7 @@ render();
 
 $("#f").addEventListener("submit", async e => {
   e.preventDefault();
-  if (st.units < 1) { alert("エアコン台数を1台以上にしてください。"); return; }
-  if (checkCampaignEnd()) {
-    const m = $("#msg"); m.className = "msg ng";
-    m.textContent = "⚠ 期間限定価格の受付は9月30日で終了しました。通常価格で再計算しましたので、金額をご確認のうえ、もう一度「この内容で予約する」を押してください。";
-    alert(m.textContent.replace("⚠ ",""));
-    window.scrollTo({top: 0, behavior:"smooth"});
-    return;
-  }
+  if (!ITEMS.some(it => it.cat !== "acopt" && st[it.k] > 0)) { alert("お掃除する場所（エアコンか水回り）を1つ以上選んでください。"); return; }
   // スマホ（特にiPhone）はブラウザの入力チェックの吹き出しが出ず、ボタンが無反応に見えるため自前でチェック
   const LABELS = { name:"お名前", phone:"電話番号", email:"メールアドレス", area:"エリア", address:"ご住所", date1:"作業日第一希望", date2:"作業日第二希望", date3:"作業日第三希望" };
   const fm = $("#f");
@@ -498,9 +500,10 @@ $("#f").addEventListener("submit", async e => {
   note = "【希望日】第1 " + data.date1 + " ／ 第2 " + data.date2 + " ／ 第3 " + data.date3 + (note ? "\n" + note : "");
   Object.assign(data, {
     note,
-    units: st.units, auto_units: st.auto, set3: st.set3 ? 1 : 0, set3_units: st.set3,
-    coat_units: st.coat, outdoor_units: st.outdoor, drain_units: st.drain,
-    breakdown: (CAMPAIGN ? "【期間限定価格】" : "【通常予約】") + c.lines.map(l=>l.name+"="+yen(l.amount)+"円").join(" / "),
+    // 各項目の数は「<項目>_units」、units はエアコンの合計台数
+    ...Object.fromEntries(ITEMS.map(it => [it.k + "_units", st[it.k]])),
+    units: acTotal(), set3: st.set3 ? 1 : 0,
+    breakdown: c.lines.map(l => l.name + "=" + (l.quote ? "お見積り" : yen(l.amount) + "円")).join(" / "),
     items: c.lines.flatMap(l=>l.items),
     total: c.total, normal_total: c.normal, submitted_at: new Date().toISOString(), page: location.href
   });
@@ -525,7 +528,7 @@ $("#f").addEventListener("submit", async e => {
 // 予約した方に、ご自身の紹介リンクを表示（紹介コード＝受付番号）
 function showShare(id){
   const url = location.origin + location.pathname + "?ref=" + encodeURIComponent(id);
-  const text = "【紹介リンク・PR】エアコンクリーニングはここに頼みました。予約はこちらから → " + url;
+  const text = "【紹介リンク・PR】お掃除はここに頼みました。予約はこちらから → " + url;
   const box = document.createElement("div");
   box.className = "share";
   box.innerHTML = '<b>ご家族やお知り合いに紹介しませんか</b>'
