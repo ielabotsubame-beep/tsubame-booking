@@ -35,6 +35,13 @@
   .cat-h .ico{flex:none;width:46px;height:46px;border-radius:14px;background:var(--soft);color:var(--brand);display:grid;place-items:center}
   .cat-h b{display:block;font-size:17px;line-height:1.3}
   .cat-h div span{font-size:12px;color:var(--muted)}
+  .fold summary{list-style:none;cursor:pointer;border-radius:14px;padding:4px 2px;-webkit-tap-highlight-color:transparent}
+  .fold summary::-webkit-details-marker{display:none}
+  .fold summary > div{flex:1}
+  .fold summary .chev{flex:none;width:38px;height:38px;border-radius:50%;border:2px solid var(--sky);color:var(--brand);display:grid;place-items:center;transition:transform .2s}
+  .fold[open] summary .chev{transform:rotate(180deg)}
+  .fold summary:focus-visible{outline:3px solid rgba(92,179,245,.5);outline-offset:2px}
+  #water_sum.on{color:var(--brand);font-weight:700}
   .row-item .t span.quote{color:var(--brand)}
   #e_total{font-variant-numeric:tabular-nums}
   .ctr{display:flex;align-items:center;gap:8px}
@@ -256,13 +263,14 @@ ABRRRQB//9k=" alt="家ラボつばめクリーン" width="120" height="120">
       <div id="rows_acopt"></div>
     </section>
 
-    <section class="cat" aria-labelledby="cat-water">
-      <div class="cat-h">
+    <details class="cat fold" id="fold_water">
+      <summary class="cat-h">
         <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8c3.6 4.3 6.2 7.6 6.2 10.8a6.2 6.2 0 0 1-12.4 0c0-3.2 2.6-6.5 6.2-10.8z"/><path d="M9.3 14.2a2.8 2.8 0 0 0 2.7 2.8"/></svg></span>
-        <div><b id="cat-water">水回り</b><span>お掃除する場所の数をお選びください</span></div>
-      </div>
+        <div><b>水回り</b><span id="water_sum">浴室・レンジフード・キッチン・トイレ・洗面台</span></div>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
       <div id="rows_water"></div>
-    </section>
+    </details>
 
     <div class="est" aria-live="polite"><div class="l">💰 概算金額</div><div class="v">¥<span id="e_total">0</span><small> 円（税込・駐車場代別）</small></div>
       <div class="d" id="e_quote">「料金はお見積り」の項目は含まれていません。担当者よりご案内します。</div></div>
@@ -355,10 +363,11 @@ const ITEMS = [
   { k:"normal",    cat:"ac",    name:"スタンダード",             price:9900,  max:20, def:1 },
   { k:"auto",      cat:"ac",    name:"お掃除機能付き",           price:14300, max:20 },
   { k:"ceiling",   cat:"ac",    name:"天井埋込型",               price:22000, max:20 },
-  { k:"set3",      cat:"acopt", name:"3点セット", desc:"防カビ抗菌コート＋室外機＋ドレンホース", price:7000, normal:9500 },
-  { k:"coat",      cat:"acopt", name:"防カビ・抗菌コート",       price:3000 },
-  { k:"outdoor",   cat:"acopt", name:"室外機クリーニング",       price:4000 },
-  { k:"drain",     cat:"acopt", name:"ドレンホース洗浄",         price:2500 },
+  { k:"set3",      cat:"acopt", name:"3点セット", desc:"ドレンホース洗浄＋抗菌コート＋室外機", price:8250, normal:9350 },
+  { k:"set2",      cat:"acopt", name:"2点セット", desc:"ドレンホース洗浄＋抗菌コート", price:4400, normal:4950 },
+  { k:"coat",      cat:"acopt", name:"防カビ・抗菌コート",       price:2200 },
+  { k:"outdoor",   cat:"acopt", name:"室外機クリーニング",       price:4400 },
+  { k:"drain",     cat:"acopt", name:"ドレンホース洗浄",         price:2750 },
   { k:"bath",      cat:"water", name:"浴室",                     price:14300, max:5 },
   { k:"hood",      cat:"water", name:"レンジフード",             price:14300, max:5 },
   { k:"kitchen",   cat:"water", name:"キッチン",                 price:12100, max:5 },
@@ -446,6 +455,11 @@ function render(){
   const c = calc();
   showTotal(c.total);
   $("#e_quote").style.display = c.quote ? "block" : "none";
+  // 水回りを閉じていても、選んだ数がわかるようにする
+  const water = ITEMS.filter(i => i.cat === "water" && st[i.k] > 0);
+  const ws = $("#water_sum");
+  ws.textContent = water.length ? "選択中：" + water.map(i => i.name + " " + st[i.k] + "か所").join("、") : "浴室・レンジフード・キッチン・トイレ・洗面台";
+  ws.classList.toggle("on", water.length > 0);
   const ac = acTotal();
   document.querySelectorAll(".ctr button").forEach(b => {
     const it = ITEMS.find(i => i.k === b.dataset.k), d = +b.dataset.d;
